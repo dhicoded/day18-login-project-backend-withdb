@@ -25,18 +25,21 @@ router.post('/',(req,res)=>{
     .then(function (data) {
        if(data.password==req.body.password){
         res.status(200).send({
-            message:'Success'
+            message:'Success',
+            userdetails:data
         });
         }
         else{
             res.status(200).send({
                 message: "Wrong Password",
+                userdetails:{}
         });
         }
     })
     .catch(function (err) {
         res.status(200).send({
             message: "User doesnt exist",
+            userdetails:{}
         });
     });
 })
